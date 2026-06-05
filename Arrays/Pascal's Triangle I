@@ -1,1 +1,24 @@
-
+/*
+  two for loops are used and second loop runs upto i and when j==0 or j==i add 1 to row list else add above two 
+  elemets of above list after add this row list to entire main list.
+*/
+class Solution {
+    public int pascalTriangleI(int r, int c) {
+       ArrayList<ArrayList<Integer>> l = new ArrayList<>();
+       for(int i=0;i<r;i++){
+        ArrayList<Integer> row = new ArrayList<>();
+        for(int j=0;j<=i;j++){
+            if(j==0 || j==i){
+                row.add(1);
+            }
+            else {
+            int val = l.get(i-1).get(j-1)+ l.get(i-1).get(j);
+            row.add(val);
+            }
+        }
+        l.add(row);
+       }
+       ArrayList<Integer> k = l.get(r-1);
+      return k.get(c-1);
+    }
+}
