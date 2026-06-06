@@ -1,0 +1,17 @@
+/*
+Byy using hashmap we can easily solve remember the getordefault method.
+*/
+class Solution {
+    public int findDuplicate(int[] nums) {
+        HashMap<Integer,Integer> hs = new HashMap<>();
+        for(int x: nums){
+            hs.put(x,hs.getOrDefault(x,0)+1);
+        }
+        for(int key : hs.keySet()){
+            if(hs.get(key)>1){
+                return key;
+            }
+        }
+        return -1;
+    }
+}
