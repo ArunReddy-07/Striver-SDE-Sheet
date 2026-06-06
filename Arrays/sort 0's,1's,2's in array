@@ -1,1 +1,33 @@
-
+/*
+This question is solved by using dutch national flag algorithm in this algorithm we keep three pointers 
+low mid high
+initially low and mid are at 0 and we move if mid == 0 swap mid and low and increase the low and mid else if 
+mid == 1 increase mid else mid == 2 swap mid and high decrease high
+*/
+class Solution {
+    public void sortColors(int[] nums) {
+        int n = nums.length-1;
+        int low =0;
+        int mid = 0;
+        int high = n;
+        while(mid<=high){
+            if(nums[mid]==0){
+                swap(nums,low,mid);
+                low++;
+                mid++;
+            }
+            else if(nums[mid]==1){
+            mid++;
+            }
+            else{
+                swap(nums,mid,high);
+                high--;
+            }
+        }
+    }
+    public static void swap(int nums[],int a,int b){
+        int temp = nums[a];
+        nums[a] = nums[b];
+        nums[b] = temp;
+    }
+}
