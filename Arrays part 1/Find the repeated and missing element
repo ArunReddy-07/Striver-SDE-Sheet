@@ -1,0 +1,30 @@
+/*
+using hashmap we can easily solve it.
+*/
+class Solution {
+    public int[] findMissingAndRepeatedValues(int[][] grid) {
+        HashMap<Integer,Integer> hs = new HashMap<>();
+        int n = grid.length;
+        int m = grid[0].length;
+        for (int[] row : grid) {
+            for (int x : row) {
+                hs.put(x, hs.getOrDefault(x, 0) + 1);
+            }
+        }
+        int start =-1;
+        for(int key : hs.keySet()){
+            if(hs.get(key)==2){
+                 start = key;
+                 break;
+            }
+        }
+        int end = -1;
+        for(int i=1;i<=n*m;i++){
+            if(!hs.containsKey(i)){
+                end = i;
+                break;
+            }
+        }
+        return new int[]{start,end};
+    }
+}
