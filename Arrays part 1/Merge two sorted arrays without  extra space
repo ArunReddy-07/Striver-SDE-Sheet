@@ -1,0 +1,29 @@
+/*
+In the below solution left  is the last index of array A and n-1 and right os the first index of array B
+see the below solution you understand it.
+*/
+class Solution {
+    public void mergeArrays(int a[], int b[]) {
+        int n = a.length;
+        int m = b.length;
+        int left = n-1;
+        int right =0;
+        while(left>=0 && right<m){
+            if(a[left]>b[right]){
+                swap(a,b,left,right);
+                left--;
+                right++;
+            }
+            else{
+                break;
+            }
+        }
+        Arrays.sort(a);
+        Arrays.sort(b);
+    }
+    public static void  swap(int a[],int b[],int left,int right){
+        int temp = a[left];
+        a[left] = b[right];
+        b[right] = temp;
+    }
+}
