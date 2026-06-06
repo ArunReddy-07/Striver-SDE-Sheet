@@ -1,1 +1,17 @@
-
+/*
+In this problem we keep one variable profit = 0 and loop starts from 1 if cost = arr[i] - minimum  here minimum is arr[0] 
+and we keep on take profir = math.max(cost ,maxprofit) and take left side as minimum to get high profit 
+minumum = math.min (minimum,arr[i)
+*/
+class Solution {
+    public int stockBuySell(int[] arr, int n) {
+       int maxprofit =0;
+    int minimum = arr[0];
+       for(int i=1;i<n;i++){
+        int cost = arr[i] - minimum;
+        maxprofit = Math.max(cost,maxprofit);
+        minimum = Math.min(minimum,arr[i]); 
+       }
+       return maxprofit;
+    }
+}
